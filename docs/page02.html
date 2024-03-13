@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profiles</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #000;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 3rem;
+            margin-top: 1rem;
+        }
+
+        .profiles-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 2rem;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            color: #ccc;
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .profile-image:hover {
+            border-color: #fff;
+        }
+
+        .profile-name:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p class="title">Who is Watching?</p>
+        <div class="profiles-row">
+
+            <div class="profile-container" onclick="redirectToPage3()">
+                <div class="profile-image">
+                    <img src="./default-green.png" alt="Profile Picture">
+                </div>
+                <p class="profile-name">User 1</p>
+            </div>
+
+            <div class="profile-container" onclick="redirectToPage3()">
+                <div class="profile-image">
+                    <img src="./default-blue.png" alt="Profile Picture">
+                </div>
+                <p class="profile-name">User 2</p>
+            </div>
+
+            <div class="profile-container" onclick="redirectToPage3()">
+                <div class="profile-image">
+                    <img src="./default-red.png" alt="Profile Picture">
+                </div>
+                <p class="profile-name">User 3</p>
+            </div>
+
+            <div class="profile-container" onclick="redirectToPage3()">
+                <div class="profile-image">
+                    <img src="./default-slate.png" alt="Profile Picture">
+                </div>
+                <p class="profile-name">User 4</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function redirectToPage3() {
+            // Add logic to handle redirection to page3.html
+            window.location.href = 'page03.html';
+        }
+    </script>
+</body>
+
+</html>

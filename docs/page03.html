@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie List</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1f1f1f;
+            color: #fff;
+        }
+
+        .navbar {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .billboard {
+            /* Add styles for the billboard section */
+        }
+
+        .movie-list {
+            padding: 20px;
+        }
+
+        .movie-list-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .movie-card {
+            background-color: #2d2d2d;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .movie-card:hover {
+            background-color: #3d3d3d;
+        }
+
+        .movie-image {
+            max-width: 100%;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="movie-list">
+        <div class="movie-list-title">Trending</div>
+        <div class="grid" id="trendingGrid"></div>
+    </div>
+    <div class="movie-list">
+        <div class="movie-list-title">My List</div>
+        <div class="grid" id="myListGrid"></div>
+    </div>
+
+    <script>
+        const moviesData = [
+            {
+                "title": "Big Buck Bunny",
+                "description": "Three rodents amuse themselves by harassing creatures of the forest. However, when they mess with a bunny, he decides to teach them a lesson.",
+                "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/7/70/Big.Buck.Bunny.-.Opening.Screen.png",
+                "duration": "10 minutes"
+            },
+            {
+                "title": "Sintel",
+                "description": "A lonely young woman, Sintel, helps and befriends a dragon, whom she calls Scales. But when he is kidnapped by an adult dragon, Sintel decides to embark on a dangerous quest to find her lost friend Scales.",
+                "thumbnailUrl": "http://uhdtv.io/wp-content/uploads/2020/10/Sintel-3.jpg",
+                "duration": "15 minutes"
+            },
+            {
+                "title": "Tears of Steel",
+                "description": "In an apocalyptic future, a group of soldiers and scientists takes refuge in Amsterdam to try to stop an army of robots that threatens the planet.",
+                "thumbnailUrl": "https://mango.blender.org/wp-content/uploads/2013/05/01_thom_celia_bridge.jpg",
+                "duration": "12 minutes"
+            },
+            {
+                "title": "Elephant's Dream",
+                "description": "Friends Proog and Emo journey inside the folds of a seemingly infinite Machine, exploring the dark and twisted complex of wires, gears, and cogs, until a moment of conflict negates all their assumptions.",
+                "thumbnailUrl": "https://download.blender.org/ED/cover.jpg",
+                "duration": "15 minutes"
+            }
+        ];
+
+        const moviesData1 = [
+            {
+                "title": "The Dark Knight Rises",
+                "description": "Eight years after the Joker's reign of anarchy, Batman, with the help of the enigmatic Catwoman, is forced from his exile to save Gotham City from the brutal guerrilla terrorist Bane.",
+                "thumbnailUrl": "./dr.jpg",
+                "duration": "164 minutes"
+            },
+            {
+                "title": "Avengers: Infinity War",
+                "description": "The Avengers and their allies must be willing to sacrifice all in an attempt to defeat the powerful Thanos before his blitz of devastation and ruin puts an end to the universe.",
+                "thumbnailUrl": "./inf.jpg",
+                "duration": "149 minutes"
+            },
+            {
+                "title": "Game of Thrones",
+                "description": "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.",
+                "thumbnailUrl": "./got.jpg",
+                "duration": "Variable (TV Series)"
+            },
+            {
+                "title": "Star Wars: Episode IV - A New Hope",
+                "description": "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee, and two droids to save the galaxy from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia from the mysterious Darth Vader.",
+                "thumbnailUrl": "./sw.jpg",
+                "duration": "121 minutes"
+            }
+        ];
+
+
+        function createMovieCard(movie) {
+            const movieCard = document.createElement("div");
+            movieCard.className = "movie-card";
+            movieCard.innerHTML = `
+                <img class="movie-image" src="${movie.thumbnailUrl}" alt="${movie.title}">
+                <p>${movie.title}</p>
+            `;
+            movieCard.onclick = () => redirectToWatch(movie.title);
+            return movieCard;
+        }
+
+        function renderMovieCards(data, gridId) {
+            const grid = document.getElementById(gridId);
+            data.forEach(movie => grid.appendChild(createMovieCard(movie)));
+        }
+
+        function redirectToWatch(movieTitle) {
+            console.log('Redirecting to watch page for Movie Title:', movieTitle);
+        }
+
+        renderMovieCards(moviesData, "trendingGrid");
+        renderMovieCards(moviesData1, "myListGrid");
+    </script>
+</body>
+
+</html>

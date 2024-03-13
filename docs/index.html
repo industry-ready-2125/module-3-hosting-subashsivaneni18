@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('./hero.jpg') no-repeat center fixed;
+            background-size: cover;
+        }
+
+        nav {
+            padding: 12px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        nav img {
+            width: 150px;
+            height: auto;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .auth-box {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 16px;
+            margin-top: 2px;
+            width: 100%;
+            max-width: 40rem;
+            border-radius: 8px;
+        }
+
+        h2 {
+            font-weight: bold;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            color: white;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            color: white;
+            background: #e53e3e;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            width: 100%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #c53030;
+        }
+
+        .toggle-text {
+            color: #a0aec0;
+            margin-top: 12px;
+        }
+
+        .toggle-link {
+            color: white;
+            text-decoration: underline;
+            cursor: pointer;
+            margin-left: 4px;
+        }
+
+        .toggle-link:hover {
+            color: #cbd5e0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <img src="./logo.png" alt="Logo">
+        </nav>
+        <div class="content">
+            <div class="auth-box">
+                <h2 id="authTitle">Login</h2>
+                <form id="authForm" onsubmit="handleSubmit(event)">
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleVariant() {
+            var title = document.getElementById('authTitle');
+            var toggleText = document.querySelector('.toggle-text');
+            var toggleLink = document.querySelector('.toggle-link');
+
+            if (title.innerText === 'Login') {
+                title.innerText = 'Register';
+                toggleLink.innerText = 'Login';
+                toggleText.innerText = 'Already have an Account';
+            } else {
+                title.innerText = 'Login';
+                toggleLink.innerText = 'Create an account';
+                toggleText.innerText = 'First Time Using Netflix?';
+            }
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            console.log('Email:', email);
+            console.log('Password:', password);
+
+            // Redirect to /page2.html
+            window.location.href = '/page02.html';
+        }
+    </script>
+</body>
+
+</html>
